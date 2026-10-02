@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EFP N°30 - Villa Ángela</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            900: '#0f172a', // Deep slate
+                            800: '#1e293b',
+                            700: '#334155',
+                            accent: '#f97316', // Orange 500
+                            accentHover: '#ea580c', // Orange 600
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        /* Hide scrollbar for category filter but allow scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2 md:gap-3">
+                        <div class="bg-brand-900 text-white p-2 rounded-lg flex-shrink-0">
+                            <i class="fa-solid fa-graduation-cap text-xl md:text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="font-bold text-xl md:text-2xl text-brand-900 tracking-tight leading-none mb-1">EFP N°30</span>
+                            <span class="text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-wider leading-tight">Escuela de Formación Profesional N°30 <br class="sm:hidden">- Villa Ángela</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-600 hover:text-brand-900 font-medium transition">Inicio</a>
+                    <a href="#oferta" class="text-gray-600 hover:text-brand-900 font-medium transition">Oferta Formativa</a>
+                    <a href="#comunidad" class="text-gray-600 hover:text-brand-900 font-medium transition">Comunidad</a>
+                    <a href="#agenda" class="text-gray-600 hover:text-brand-900 font-medium transition">Agenda</a>
+                    <button onclick="openModal('campusModal')" class="bg-brand-accent hover:bg-brand-accentHover text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg shadow-orange-500/30 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code"></i> Campus Virtual
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-brand-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl" id="mobile-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#inicio" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Inicio</a>
+                <a href="#oferta" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Oferta Formativa</a>
+                <a href="#comunidad" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Comunidad</a>
+                <a href="#agenda" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md">Agenda</a>
+                <button onclick="openModal('campusModal')" class="mt-4 w-full bg-brand-accent text-white px-3 py-3 rounded-lg font-semibold flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-laptop-code"></i> Ingresar al Campus
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-900 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-12 mb-12">
+            <!-- Text Content -->
+            <div class="md:w-1/2 text-center md:text-left">
+                <span class="text-brand-accent font-bold tracking-wider uppercase text-sm mb-4 block">Inscripciones Abiertas</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Impulsa tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-yellow-400">Futuro Profesional</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0">
+                    Capacítate con nuestros Trayectos y Propuestas Formativas orientadas a la rápida inserción laboral. Tu carrera empieza hoy.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#oferta" class="bg-brand-accent hover:bg-brand-accentHover text-white px-6 py-3.5 rounded-full font-bold text-base transition text-center shadow-lg shadow-orange-500/40">
+                        Ver Oferta Formativa
+                    </a>
+                    <a href="#comunidad" class="bg-brand-800 hover:bg-brand-700 text-white border border-brand-700 px-5 py-3.5 rounded-full font-bold text-base transition text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-user-graduate"></i> Soy Alumno
+                    </a>
+                    <a href="#comunidad" class="bg-brand-800 hover:bg-brand-700 text-white border border-brand-700 px-5 py-3.5 rounded-full font-bold text-base transition text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chalkboard-user"></i> Soy Docente
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="md:w-1/2 w-full">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-800 aspect-video md:aspect-[4/3] bg-gray-800 flex items-center justify-center group">
+                    <img src="Gemini_Generated_Image_yl2h8kyl2h8kyl2h.jpg" 
+                         onerror="this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80'" 
+                         alt="Fachada EFP N°30" 
+                         class="object-cover w-full h-full opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
+                    
+                    <div class="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 shadow-lg border border-white/50">
+                        <div class="bg-blue-100 text-blue-700 p-3 rounded-full h-12 w-12 flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-award text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900 leading-tight">Certificación Oficial (MECCyT)</p>
+                            <p class="text-xs md:text-sm text-gray-700 font-medium mt-0.5">Acredita idoneidad en la Formación elegida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frase Institucional -->
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center mt-8">
+            <div class="border-t border-brand-700/50 pt-8">
+                <i class="fa-solid fa-quote-left text-brand-accent/50 text-3xl mb-4"></i>
+                <blockquote class="text-xl md:text-2xl text-gray-300 font-light italic leading-relaxed">
+                    "Lo que escucho, lo olvido; lo que veo, lo recuerdo; lo que hago con mis propias manos, lo aprendo."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vitrina de Ofertas -->
+    <section id="oferta" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-900 mb-4">Nuestra Oferta Formativa</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explora nuestras Propuestas Formativas (Perfiles Profesionales y Capacitaciones Laborales) Diseñadas para asegurar tu empleabilidad en Villa Ángela y la región.</p>
+            </div>
+
+            <!-- Filtros (Familias Profesionales Actualizados) -->
+            <div class="flex overflow-x-auto no-scrollbar gap-2 mb-10 pb-2 justify-start md:justify-center">
+                <button onclick="filterCourses('todos')" class="filter-btn active bg-brand-900 text-white px-5 py-2 rounded-full font-medium whitespace-nowrap transition">Todos</button>
+                <button onclick="filterCourses('informatica_admin')" class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-5 py-2 rounded-full font-medium whitespace-nowrap transition">Informática & Administración</button>
+                <button onclick="filterCourses('oficios_tecnicos')" class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-5 py-2 rounded-full font-medium whitespace-nowrap transition">Oficios Técnicos</button>
+                <button onclick="filterCourses('estetica_indumentaria')" class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-5 py-2 rounded-full font-medium whitespace-nowrap transition">Estética e Indumentaria</button>
+                <button onclick="filterCourses('servicios_cuidados')" class="filter-btn bg-gray-100 text-gray-600 hover:bg-gray-200 px-5 py-2 rounded-full font-medium whitespace-nowrap transition">Servicios y Cuidados</button>
+            </div>
+
+            <!-- Grilla de Cursos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courseGrid">
+                
+                <!-- Card 1: Informática -->
+                <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="informatica_admin">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600" alt="Administración e Informática" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Informática & Administración</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Operador en Informática para la Administración y Gestión (O.I.A.G)</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Capacitación integral en herramientas digitales, procesadores de texto, planillas de cálculo y gestión contable/administrativa básica.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Oficios Técnicos -->
+                <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="oficios_tecnicos">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600" alt="Electricidad Domiciliaria" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Oficios Técnicos</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Montador Electricista Domiciliario e Industrial</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Aprende a planificar, instalar y mantener sistemas eléctricos en viviendas e industrias cumpliendo normas de seguridad.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                             <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Estética e Indumentaria -->
+                <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="estetica_indumentaria">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=600" alt="Peluquería y Estética" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Estética e Indumentaria</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Peluquería y Colorimetría</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Formación completa en técnicas de corte, peinado, tratamientos capilares y especialización en colorimetría profesional.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                             <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Oficios Técnicos (Carpintería) -->
+                <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="oficios_tecnicos">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590423188599-5bb876ef4827?auto=format&fit=crop&q=80&w=600" alt="Carpintería" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Oficios Técnicos</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Carpintería de Banco y Muebles Laminados</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Técnicas de diseño, corte, armado y terminación en madera y materiales laminados modernos para mobiliario.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                             <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Card 5: Estética e Indumentaria (Confección/Marroquinería) -->
+                 <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="estetica_indumentaria">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80&w=600" alt="Confección y Marroquinería" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Estética e Indumentaria</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Confección a Medida y Marroquinería</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Desde operación de máquinas para indumentaria hasta el diseño y armado de artículos de cuero y telas.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                             <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Servicios y Cuidados -->
+                <div class="course-card fade-in bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition group flex flex-col" data-category="servicios_cuidados">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=600" alt="Cuidados Gerontológicos" class="object-cover w-full h-full group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <span class="text-brand-accent text-sm font-bold uppercase tracking-wider mb-2 block">Servicios y Cuidados</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Auxiliar en Cuidados Gerontológicos</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">Formación para el acompañamiento y asistencia integral de adultos mayores, promoviendo su bienestar físico y emocional.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-6 gap-4">
+                             <span class="flex items-center gap-1"><i class="fa-solid fa-certificate"></i> Certificación Oficial</span>
+                        </div>
+                        <button onclick="openModal('courseModal')" class="w-full bg-gray-50 hover:bg-brand-900 hover:text-white text-brand-900 font-semibold py-2.5 rounded-lg border border-gray-200 hover:border-brand-900 transition text-center">
+                            Ver Detalles y Admisión
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón Ver Todo -->
+             <div class="mt-12 text-center">
+                <button onclick="alert('Esta sección llevará a una página con el listado completo de los más de 20 perfiles profesionales disponibles (Programador Web, Aux. Jurídico, Zapatero, etc.).')" class="bg-white border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white px-8 py-3 rounded-full font-bold transition shadow-sm hover:shadow-md">
+                    Ver el listado completo de Cursos
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Módulo de Accesos (Estudiantes, Docentes, Recursos) -->
+    <section id="comunidad" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-900 mb-4">Plataformas y Accesos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Herramientas dedicadas para nuestra comunidad educativa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Acceso Estudiantes -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Portal Estudiantes</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1">Revisa tus horarios semanales, calificaciones, constancias y calendario académico.</p>
+                    <button onclick="openModal('studentModal')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition">
+                        Ingresar <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Acceso Docentes -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Portal Docentes</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1">Descarga de planillas de asistencia, carga de notas y acceso directo al repositorio de Drive institucional.</p>
+                    <div class="w-full flex gap-2">
+                         <button onclick="alert('Abriendo Portal de Gestión Docente...')" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 rounded-lg transition text-sm">
+                            Gestión
+                        </button>
+                        <button onclick="alert('Redirigiendo a Google Drive Compartido...')" class="flex-1 border border-purple-200 text-purple-700 hover:bg-purple-50 font-medium py-2.5 rounded-lg transition flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-brands fa-google-drive"></i> Drive
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Repositorio de Recursos -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-photo-film"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Materiales y Recursos</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-1">Guías de trabajos prácticos, simuladores y material hipermedia interactivo de libre acceso.</p>
+                    <button onclick="alert('Abriendo buscador de recursos públicos...')" class="w-full border border-teal-600 text-teal-700 hover:bg-teal-50 font-medium py-2.5 rounded-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i> Explorar Recursos
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cartelera Digital y Agenda -->
+    <section id="agenda" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12">
+                
+                <!-- Noticias -->
+                <div class="md:w-2/3">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-2 h-8 bg-brand-accent rounded-full"></div>
+                        <h2 class="text-3xl font-bold text-brand-900">Cartelera Digital</h2>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Noticia 1 -->
+                        <div class="flex flex-col sm:flex-row gap-6 bg-gray-50 rounded-xl overflow-hidden hover:shadow-md transition group border border-gray-100">
+                            <div class="sm:w-48 h-48 sm:h-auto bg-gray-200 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" alt="Feria" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                                <span class="absolute top-2 left-2 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">Destacado</span>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-center">
+                                <span class="text-gray-500 text-sm font-medium mb-1"><i class="fa-regular fa-calendar"></i> Próximamente</span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-accent transition">Exposición Anual de Talleres</h3>
+                                <p class="text-gray-600 text-sm mb-4">Nuestra escuela abrirá sus puertas para mostrar los trabajos de carpintería, indumentaria, y mecatrónica. ¡Entrada libre a la comunidad!</p>
+                                <a href="#" class="text-brand-900 font-semibold text-sm flex items-center gap-1 hover:text-brand-accent transition">Leer más <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 2 -->
+                        <div class="flex flex-col sm:flex-row gap-6 bg-gray-50 rounded-xl overflow-hidden hover:shadow-md transition group border border-gray-100">
+                            <div class="sm:w-48 h-48 sm:h-auto bg-gray-200 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80" alt="Charla" class="object-cover w-full h-full group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-center">
+                                <span class="text-gray-500 text-sm font-medium mb-1"><i class="fa-regular fa-calendar"></i> Inscripciones</span>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-accent transition">Apertura de Pre-inscripciones</h3>
+                                <p class="text-gray-600 text-sm mb-4">Se encuentra abierta la etapa de consultas y pre-inscripción para el nuevo ciclo lectivo. Acércate con tu DNI.</p>
+                                <a href="#" class="text-brand-900 font-semibold text-sm flex items-center gap-1 hover:text-brand-accent transition">Ver requisitos <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agenda Sidebar -->
+                <div class="md:w-1/3">
+                    <div class="bg-brand-900 rounded-2xl p-6 text-white shadow-lg sticky top-28">
+                        <div class="flex items-center justify-between mb-6 border-b border-brand-700 pb-4">
+                            <h3 class="text-xl font-bold">Agenda Escolar</h3>
+                            <i class="fa-solid fa-calendar-days text-brand-accent text-2xl"></i>
+                        </div>
+                        
+                        <ul class="space-y-6">
+                            <!-- Evento 1 -->
+                            <li class="flex gap-4">
+                                <div class="bg-brand-800 rounded-lg p-2 text-center w-14 h-14 flex-shrink-0 border border-brand-700 flex flex-col justify-center">
+                                    <i class="fa-solid fa-users text-brand-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Muestra Anual</h4>
+                                    <p class="text-gray-400 text-xs"><i class="fa-solid fa-location-dot"></i> Instalaciones EFP N°30</p>
+                                </div>
+                            </li>
+                            <!-- Evento 2 -->
+                            <li class="flex gap-4">
+                                <div class="bg-brand-800 rounded-lg p-2 text-center w-14 h-14 flex-shrink-0 border border-brand-700 flex flex-col justify-center">
+                                    <i class="fa-solid fa-file-signature text-brand-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Periodo de Matriculación</h4>
+                                    <p class="text-gray-400 text-xs"><i class="fa-solid fa-building"></i> Secretaría Administrativa</p>
+                                </div>
+                            </li>
+                            <!-- Evento 3 -->
+                            <li class="flex gap-4">
+                                <div class="bg-brand-800 rounded-lg p-2 text-center w-14 h-14 flex-shrink-0 border border-brand-700 flex flex-col justify-center">
+                                    <i class="fa-solid fa-chalkboard text-brand-accent text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white mb-1">Inicio de Clases</h4>
+                                    <p class="text-gray-400 text-xs"><i class="fa-solid fa-clock"></i> Consultar Horarios</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="w-full mt-8 bg-brand-800 hover:bg-brand-700 text-white font-medium py-2 rounded border border-brand-700 transition text-sm">
+                            Ver Calendario Completo
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-gray-300 py-12 border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <a href="#" class="flex items-center gap-3 mb-5">
+                    <div class="bg-white text-brand-900 p-2 rounded-lg flex-shrink-0">
+                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="font-bold text-xl text-white tracking-tight leading-none mb-1">EFP N°30</span>
+                        <span class="text-[9px] text-gray-400 font-bold uppercase tracking-wider leading-tight">Escuela de Formación Profesional N°30 <br>- Villa Ángela</span>
+                    </div>
+                </a>
+                <p class="text-sm text-gray-400 mb-4">Formando profesionales con excelencia e innovación para el futuro del trabajo.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Accesos Rápidos</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-accent transition">Oferta Formativa</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Requisitos de Admisión</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Calendario Académico</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Plataformas</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-accent transition">Campus Virtual (Moodle)</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Portal Estudiantes</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Portal Docentes</a></li>
+                    <li><a href="#" class="hover:text-brand-accent transition">Repositorio de Recursos</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contacto</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-brand-accent"></i>
+                        <span>Calle Rivadavia y Andrés Maturin.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone mt-1 text-brand-accent"></i>
+                        <div class="flex flex-col gap-1.5">
+                            <a href="tel:+543735402517" class="hover:text-brand-accent transition">+54 3735 (402517)</a>
+                            <a href="tel:+543735521359" class="hover:text-brand-accent transition">+54 3735 (521359)</a>
+                            <a href="tel:+543735500896" class="hover:text-brand-accent transition">+54 3735 (500896)</a>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-brand-accent"></i>
+                        <a href="mailto:efp30chaco@yahoo.com.ar" class="hover:text-brand-accent transition">efp30chaco@yahoo.com.ar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-brand-800 text-sm text-center text-gray-500">
+            &copy; 2026 EFP N°30 - Villa Ángela. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- MODALES DE INTERACCIÓN (UX Demonstration) -->
+    
+    <!-- Modal: Campus Virtual Login -->
+    <div id="campusModal" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden fade-in">
+            <div class="bg-brand-900 p-6 flex justify-between items-center text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 10px 10px;"></div>
+                <div class="relative z-10 flex items-center gap-3">
+                    <i class="fa-solid fa-laptop-code text-2xl text-brand-accent"></i>
+                    <h3 class="text-xl font-bold">Campus Virtual</h3>
+                </div>
+                <button onclick="closeModal('campusModal')" class="relative z-10 text-gray-400 hover:text-white transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6 flex justify-center">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full border border-gray-200">Powered by Moodle / CLASSESUP</span>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Validando credenciales en Campus Virtual...'); closeModal('campusModal');">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Usuario / DNI</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition" placeholder="Ingrese su usuario">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+                        <input type="password" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition" placeholder="••••••••">
+                        <a href="#" class="text-xs text-brand-accent hover:underline mt-2 block text-right">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold py-3 rounded-lg transition shadow-md">
+                        Ingresar a Mis Aulas
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Detalle de Curso y Pre-inscripción (UX Form) -->
+    <div id="courseModal" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto fade-in">
+            <div class="sticky top-0 bg-white border-b border-gray-100 p-4 flex justify-between items-center z-10">
+                <h3 class="text-xl font-bold text-brand-900">Detalles de Formación</h3>
+                <button onclick="closeModal('courseModal')" class="text-gray-400 hover:text-brand-900 transition bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="p-6 md:p-8 flex flex-col md:flex-row gap-8">
+                <!-- Info del curso -->
+                <div class="md:w-1/2">
+                    <span class="text-brand-accent font-bold uppercase text-xs mb-2 block">Información General</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Perfil Profesional Seleccionado</h2>
+                    <p class="text-gray-600 mb-6">El egresado estará capacitado para desenvolverse en el ámbito laboral de acuerdo a las normativas de seguridad y los estándares de calidad del oficio.</p>
+                    
+                    <h4 class="font-bold text-gray-900 mb-2 border-b border-gray-200 pb-2">Requisitos de Admisión (Sujeto a modificación)</h4>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6 list-disc pl-5">
+                        <li>Estudios primarios o secundarios completos (según perfil).</li>
+                        <li>Ser mayor de 18 años.</li>
+                        <li>DNI original y copia.</li>
+                    </ul>
+
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 flex gap-4 text-sm">
+                        <div class="flex-1">
+                            <span class="block text-gray-500 font-medium">Certificación</span>
+                            <span class="font-bold text-gray-900">Oficial MECCyT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Pre-inscripción (UX Multi-step simulation) -->
+                <div class="md:w-1/2 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+                    <h4 class="font-bold text-lg text-brand-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature text-brand-accent"></i> Consulta / Pre-inscripción
+                    </h4>
+                    
+                    <form onsubmit="event.preventDefault(); alert('Sus datos han sido enviados. Nos pondremos en contacto pronto.'); closeModal('courseModal');">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-xs font-bold mb-1">Nombre Completo</label>
+                                <input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-accent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-xs font-bold mb-1">DNI</label>
+                                <input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-accent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-xs font-bold mb-1">Número de Teléfono (WhatsApp)</label>
+                                <input type="tel" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-accent">
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full mt-6 bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-3 rounded-lg transition shadow-md">
+                            Enviar Consulta <i class="fa-solid fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Portal Estudiantes -->
+    <div id="studentModal" class="fixed inset-0 bg-brand-900/80 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden fade-in">
+             <div class="bg-blue-600 p-6 flex justify-between items-center text-white">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-user-graduate text-2xl"></i>
+                    <h3 class="text-xl font-bold">Portal Estudiantes</h3>
+                </div>
+                <button onclick="closeModal('studentModal')" class="text-white/80 hover:text-white transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-6">
+                <form onsubmit="event.preventDefault(); alert('Accediendo al panel de alumnos...'); closeModal('studentModal');">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Matrícula o DNI</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Contraseña de Gestión</label>
+                        <input type="password" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition shadow-md">
+                        Ingresar a Gestión
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Lógica de Modales
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Cerrar modales al hacer clic fuera
+        window.onclick = function(event) {
+            const modals = ['campusModal', 'courseModal', 'studentModal'];
+            modals.forEach(id => {
+                const modal = document.getElementById(id);
+                if (event.target == modal) {
+                    closeModal(id);
+                }
+            });
+        }
+
+        // Lógica de Filtrado de Cursos
+        function filterCourses(category) {
+            // Actualizar estado visual de los botones
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-900', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+            
+            // Encontrar el botón clickeado
+            const clickedBtn = event.currentTarget;
+            clickedBtn.classList.remove('bg-gray-100', 'text-gray-600');
+            clickedBtn.classList.add('bg-brand-900', 'text-white');
+
+            // Filtrar las tarjetas
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                card.classList.remove('fade-in');
+                void card.offsetWidth; // Trigger reflow
+                card.classList.add('fade-in');
+
+                if (category === 'todos' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

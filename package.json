@@ -1,0 +1,10 @@
+{
+  "name": "efp30-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./web/assets/input.css -o ./web/assets/styles.css --minify",
+    "start": "node scripts/serve.cjs"
+  },
+  "devDependencies": { "tailwindcss": "3.4.17" }
+}
