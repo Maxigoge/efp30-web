@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i ./web/assets/input.css -o ./web/assets/styles.css --minify",
-    "start": "node scripts/serve.cjs"
+    "build": "tsc --noEmit && vite build",
+    "start": "vite --host 127.0.0.1 --port 5173",
+    "preview": "vite preview --host 127.0.0.1 --port 4174"
   },
-  "devDependencies": { "tailwindcss": "3.4.17" }
+  "dependencies": { "react": "^19.0.0", "react-dom": "^19.0.0" },
+  "devDependencies": { "tailwindcss": "3.4.17", "vite": "^7.0.0", "typescript": "^5.9.0", "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0", "postcss": "^8.5.0", "autoprefixer": "^10.4.0" }
 }

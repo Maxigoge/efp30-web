@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.fade-in { animation: fadeIn .3s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+:focus-visible { outline: 3px solid #f97316; outline-offset: 4px; }
+dialog { border: 0; padding: 0; width: min(42rem, calc(100% - 2rem)); max-height: 85vh; border-radius: 1rem; }
+dialog::backdrop { background: rgb(15 23 42 / .8); backdrop-filter: blur(4px); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.filter-btn { @apply bg-gray-100 text-gray-600 px-5 py-2 rounded-full font-medium whitespace-nowrap transition; }
+.filter-btn[aria-pressed="true"] { @apply bg-brand-900 text-white; }
